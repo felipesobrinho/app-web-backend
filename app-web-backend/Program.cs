@@ -1,3 +1,6 @@
+using app_web_backend.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace app_web_backend
 {
     public class Program
@@ -8,6 +11,11 @@ namespace app_web_backend
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Add ApplicationDbContext Connection
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(connectionString));
 
             var app = builder.Build();
 
