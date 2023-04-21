@@ -23,6 +23,7 @@ namespace app_web_backend.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Valor { get; set; }
 
+        [Display(Name = "Tipo de Combustível")]
         [Required(ErrorMessage = "Obrigatório informar o Tipo de Combustível!")]
         public TipoCombustivel Tipo { get; set; }
 
@@ -34,6 +35,7 @@ namespace app_web_backend.Models
         [ForeignKey("VeiculoId")]
         public Veiculo Veiculo { get; set; }
     }
+
 
     public enum TipoCombustivel
     {
