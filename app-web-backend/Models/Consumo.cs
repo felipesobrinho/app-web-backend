@@ -11,7 +11,7 @@ namespace app_web_backend.Models
 
         [Display(Name = "Descrição")]
         [Required(ErrorMessage = "Obrigatório informar a descrição!")]
-        public string Descricao {  get; set; }
+        public string? Descricao {  get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar a Data!")]
         public DateTime Data { get; set; }
@@ -33,7 +33,7 @@ namespace app_web_backend.Models
         public int VeiculoId { get; set; }
 
         [ForeignKey("VeiculoId")]
-        public Veiculo Veiculo { get; set; }
+        public Veiculo? Veiculo { get; set; }
     }
 
 

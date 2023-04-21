@@ -13,11 +13,11 @@ namespace app_web_backend.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Obrigatório Informar um Nome!")]
-        public string Nome { get; set; }
+        public string? Nome { get; set; }
 
         [Required(ErrorMessage = "Obrigatório informar a Placa")]
-        public string Placa { get; set; }
+        public string? Placa { get; set; }
 
-        public ICollection<Consumo> Consumos { get; set; }
+        public ICollection<Consumo>? Consumos { get; set; }
     }
 }
