@@ -9,36 +9,38 @@
     <link rel="stylesheet" href="~/app_web_backend.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">app_web_backend</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Veiculos" asp-action="Index">Veiculos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Consumos" asp-action="Index">Consumos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">app_web_backend</a>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li class="nav-item">
+                <a class="nav-link text-white px-2" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white px-2" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white px-2" asp-area="" asp-controller="Veiculos" asp-action="Index">Veiculos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white px-2" asp-area="" asp-controller="Consumos" asp-action="Index">Consumos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white px-2" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuários</a>
+            </li>
+        </ul>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2"><a class="text-white" asp-controller="Usuarios" asp-action="Login">Login</a></button>
+          <button type="button" class="btn btn-warning">Sign-up</button>
+        </div>
+      </div>
+    </div>
+  </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -56,3 +58,19 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+<style>
+ header {
+    --bs-dark-rgb: 33,37,41;
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+ }
+
+a{
+    text-decoration: none;
+}
+    
+
+ .me2 {
+    margin-right: .5rem !important;
+ }
+</style>
