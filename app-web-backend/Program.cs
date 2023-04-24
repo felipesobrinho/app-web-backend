@@ -1,4 +1,6 @@
 using app_web_backend.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 
 namespace app_web_backend
@@ -17,6 +19,18 @@ namespace app_web_backend
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
+            
+
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+             .AddCookie(options =>
+             {
+                 options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+                 options.SlidingExpiration = true;
+                 options.LoginPath = "/Usuarios/Login";
+                 options.AccessDeniedPath = "/Usuarios/AcessDenied";
+             });
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -27,11 +41,14 @@ namespace app_web_backend
                 app.UseHsts();
             }
 
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseCookiePolicy();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

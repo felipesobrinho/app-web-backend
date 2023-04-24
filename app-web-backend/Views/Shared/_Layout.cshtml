@@ -35,8 +35,22 @@
         </ul>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2"><a class="text-white" asp-controller="Usuarios" asp-action="Login">Login</a></button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
+            @if (User.Identity!.IsAuthenticated)
+             {
+                <ul>
+                    <li class="nav-item text-white">
+                         Olá, @User.Identity.Name
+                    </li>
+                    <a class="nav-link text-white" asp-controller="Usuarios" asp-action="Logout">
+                        Sair
+                    </a>
+                </ul>
+             }    
+            else
+             {
+                <button type="button" class="btn btn-outline-light me-2"><a class="text-white" asp-controller="Usuarios" asp-action="Login">Login</a></button>
+                <button type="button" class="btn btn-warning">Sign-up</button>
+             }
         </div>
       </div>
     </div>
@@ -69,6 +83,9 @@ a{
     text-decoration: none;
 }
     
+li {
+    list-style: none;
+}
 
  .me2 {
     margin-right: .5rem !important;
