@@ -67,8 +67,7 @@ namespace app_web_backend.Controllers
                 await HttpContext.SignInAsync(principal, props);
 
                 return Redirect("/");
-            }
-
+            
             return View();
         }
 
